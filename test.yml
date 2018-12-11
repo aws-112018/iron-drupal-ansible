@@ -3,10 +3,15 @@
   hosts: all
   gather_facts: True 
   tasks:
-         - name: "début du test"
-           debug:
+          - set_fact:
+             ipadd: "{{ ansible_default_ipv4.address }}"
+
+          - name: "début du test"
+            debug:
              msg: "voici le début du test"
 
-         - name: "get homepage HTTP code"
-           uri:
-            url: http://127.0.0.1
+             # - name: "get homepage HTTP code"
+             #uri:
+          - debug:
+              msg: "http://{{ ipadd }}"
+            #debug: var=ansible_virtualization_type

@@ -1,18 +1,20 @@
 # file ./playbook.yml
 ---
-- hosts: all
+- hosts: drupal01
   become: yes
 
   vars_files:
     - vars.yml
-
   pre_tasks:
-    - name: Update apt cache if needed.
-      apt: update_cache=yes cache_valid_time=3600
-
+    - name: "Update apt cache if needed."
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
   handlers:
-    - import_tasks: handlers/handlers.yml
-
+    - name: "restart apache"
+      service:
+        name: apache2
+        state: restarted
   tasks:
     - import_tasks: tasks/common.yml
     - import_tasks: tasks/apache.yml

@@ -4,14 +4,17 @@
   gather_facts: True 
   tasks:
           - set_fact:
-             ipadd: "{{ ansible_default_ipv4.address }}"
-
+              ipadd: "{{ ansible_default_ipv4.address }}"
           - name: "début du test"
             debug:
-             msg: "voici le début du test"
-
-             # - name: "get homepage HTTP code"
-             #uri:
+              msg: "voici le début du test"
+          - name: "contenu de la page Drupal"
+            uri:
+              url: "http://{{ ipadd }}"
+              return_content: yes
+            register: output
           - debug:
-              msg: "http://{{ ipadd }}"
-            #debug: var=ansible_virtualization_type
+              msg: "Drupal OK"
+            when: output.content is search ("Powered by")
+
+          

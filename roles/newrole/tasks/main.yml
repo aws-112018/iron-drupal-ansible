@@ -1,6 +1,6 @@
 ---
 # tasks file for newrole
-    - iiclude_tasks: tasks/common.yml
+    - include_tasks: tasks/common.yml
     - include_tasks: tasks/apache.yml
     - include_tasks: tasks/php.yml
     - include_tasks: tasks/mysql.yml

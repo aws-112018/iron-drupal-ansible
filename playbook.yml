@@ -2,9 +2,6 @@
 ---
 - hosts: drupal05
   become: yes
-
-  vars_files:
-    - vars/vars.yml
   pre_tasks:
     - name: "Update apt cache if needed."
       apt:

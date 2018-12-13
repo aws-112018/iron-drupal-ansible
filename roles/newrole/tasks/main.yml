@@ -1,10 +1,9 @@
 ---
 # tasks file for newrole
-    - include_tasks: tasks/common.yml
-    - include_tasks: tasks/apache.yml
-    - include_tasks: tasks/php.yml
-    - include_tasks: tasks/mysql.yml
-    - include_tasks: tasks/composer.yml
-    - include_tasks: tasks/drush.yml
-    - include_tasks: tasks/drupal.yml
-
+    - include_tasks: common.yml
+    - include_tasks: apache.yml
+    - include_tasks: php.yml
+    - include_tasks: mysql.yml
+    - include_tasks: composer.yml
+    - include_tasks: drush.yml
+    - include_tasks: drupal.yml

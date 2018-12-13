@@ -13,5 +13,3 @@
     shell: >
       mv /tmp/composer.phar /usr/local/bin/composer
       creates=/usr/local/bin/composer
-~                                                                                      
-~                                      
